@@ -33,7 +33,8 @@ public class PictureRepository {
 
 	
 		mongoTemplate.save(photo, "travelpics");
-
+		return true;
+ 
 	}
 }
 

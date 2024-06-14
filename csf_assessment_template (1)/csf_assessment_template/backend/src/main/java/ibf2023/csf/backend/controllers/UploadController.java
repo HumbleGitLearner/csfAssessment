@@ -39,11 +39,19 @@ public class UploadController {
 		
              System.out.println("file >>> " + pd.toString());
         
-			 Boolean result = empSvc.save(pd, myimage);
+		Boolean result = empSvc.save(pd, myimage);
+		if (result) {
 		return ResponseEntity.ok(
 			Json.createObjectBuilder().build().toString()
 		);
-	
+		} else {
+		//	Map<String, String>error = new HashMap<String, String>();
+
+         //   error.put("error", "Failed to create bundle");
+
+            return ResponseEntity.status(500).body("Failed to create bundle");
+
+		}
 	}
 
 

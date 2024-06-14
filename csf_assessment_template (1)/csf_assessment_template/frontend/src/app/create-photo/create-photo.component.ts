@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { WebcamComponent, WebcamImage } from 'ngx-webcam';
 import { Subject, Subscription } from 'rxjs';
@@ -30,7 +30,7 @@ export class CreatePhotoComponent implements OnInit, OnDestroy, AfterViewInit {
   blob!: Blob;
 
   employeeForm: FormGroup = new FormGroup({
-    firstName: new FormControl(''),
+    firstName: new FormControl('', [Validators.minLength(5)]),
     lastName: new FormControl(''),
     email: new FormControl(''),
     profileUrl: new FormControl(''),
