@@ -2,12 +2,19 @@ package ibf2023.csf.backend.models;
 
 import java.util.List;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Field;
+
 public class PhotoDetails {
-    int photoId;
-    String title;
-    String image;
-     String url;
-      List<Comment> comments;
+      @Id
+    @Field("_id")
+
+    private int photoId;
+    private  String title;
+    private String image;
+    private String url;
+    private  List<Comment> comments;
+    
     public PhotoDetails() {
     }
     public PhotoDetails(int photoId, String title, String image, String url, List<Comment> comments) {

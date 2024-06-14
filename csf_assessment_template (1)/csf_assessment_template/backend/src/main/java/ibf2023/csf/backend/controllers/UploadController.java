@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import ibf2023.csf.backend.models.PhotoDetails;
@@ -30,6 +31,7 @@ public class UploadController {
 	// You may change the method signature by adding additional parameters and annotations.
 	// You cannot remove any any existing annotations and parameters from postUpload()
 	@PostMapping(path="/image/upload", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+	@ResponseBody
 	public ResponseEntity<String> postUpload( @RequestParam("image") MultipartFile myimage, 
         @RequestParam("firstName") String firstName, @RequestParam("lastName") String lastName,
         @RequestParam("email") String email) throws IOException {
